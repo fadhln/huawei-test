@@ -1,0 +1,1 @@
+The boilerplate is inspired from [express-typescript-boilerplate](https://github.com/amm834/express-typescript-boilerplate)
