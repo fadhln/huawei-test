@@ -1,0 +1,235 @@
+:root {
+  --background-color: rgba(9, 9, 11, 1);
+  --content-color: #fafafa;
+  --primary-color: #fb923c;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+html {
+  font-family: "Inter", system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--content-color);
+  background-color: var(--background-color);
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #27272a;
+  border-bottom: 1px solid #3f3f46;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 600;
+  color: #fb923c;
+}
+
+.logo-svg {
+  aspect-ratio: 1;
+  width: 2rem;
+}
+
+main {
+  min-height: 100%;
+  padding: 0.5rem;
+}
+
+.create-note {
+  margin: 0.3rem;
+  padding: 0.7rem;
+  border: 1px solid #27272a;
+  border-radius: 0.5rem;
+
+  & h2 {
+    font-size: large;
+    font-weight: light;
+    margin-bottom: 1rem;
+  }
+
+  & textarea {
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    border: 2px solid #3f3f46;
+    background-color: #27272a;
+    width: 100%;
+  }
+  & textarea:focus-visible {
+    outline: 2px solid #52525b;
+    outline-offset: 2px;
+  }
+
+  & input {
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    border: 2px solid #3f3f46;
+    background-color: #27272a;
+    width: 100%;
+  }
+  & input:focus-visible {
+    outline: 2px solid #52525b;
+    outline-offset: 2px;
+  }
+
+  & .details-area {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+
+    & label {
+        font-size: small;
+    }
+  }
+
+  & .submit-area {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: end;
+  }
+
+  & button {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+  }
+
+  & button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+}
+
+.read-note {
+  margin-top: 0.5rem;
+}
+
+.note {
+  margin: 0.3rem;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: #3f3f46;
+  filter: contrast(100%) brightness(100%);
+  background: radial-gradient(
+      circle at 100% 10%,
+      rgba(24, 24, 27, 0.8),
+      rgba(39, 39, 42, 0.9)
+    ),
+    url(noise.svg);
+}
+
+.note-header {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+
+  & > p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+
+  & > button {
+    aspect-ratio: 1;
+    height: 0.9rem;
+  }
+}
+
+.note-details {
+  background-color: #3f3f46;
+  margin: 8px 0;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  border-color: #52525b;
+  & > div {
+    display: flex;
+    align-items: center;
+    & > svg {
+      aspect-ratio: 1;
+      max-width: 1rem;
+      margin-right: 0.5rem;
+    }
+    & > span {
+      font-family: var(--font-mono);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+.note-content {
+  margin-top: 0.25rem;
+  font-weight: 300;
+}
+
+.note-footer {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: 0.6rem;
+
+  & > hr {
+    margin-right: 2rem;
+    flex: 1;
+    border-image: linear-gradient(
+      to right,
+      rgba(161, 161, 170, 0.5),
+      rgba(161, 161, 170, 0)
+    );
+    border-width: 1px;
+    border-style: solid;
+    border-image-slice: 10% fill;
+  }
+}
+
+.note:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.copyright {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 0.6rem;
+}

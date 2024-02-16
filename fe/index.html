@@ -4,13 +4,164 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
-    <link rel="stylesheet" href="public/global.css">
+    <!-- Use Tailwind Preflight to "reset" CSS (https://tailwindcss.com/docs/preflight) -->
+    <link
+      rel="preload stylesheet"
+      href="https://unpkg.com/tailwindcss@3.4.1/src/css/preflight.css"
+      as="style"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="public/global.css" />
 
     <title>Noteboard</title>
   </head>
   <body>
-    <div id="app"></div>
+    <header>
+      <div class="logo">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="logo-svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+          />
+        </svg>
+        <span>Noteboard</span>
+      </div>
+    </header>
+    <main class="container">
+      <section class="create-note">
+        <h2>Share your thoughts...</h2>
+        <div>
+          <textarea
+            id="w3review"
+            name="w3review"
+            placeholder="Start here"
+            rows="4"
+          ></textarea>
+        </div>
+        <div class="details-area">
+          <div>
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              required
+              placeholder="John Doe"
+            />
+          </div>
+          <div>
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              pattern=".+@example\.com"
+              required
+              placeholder="john@doe.com"
+            />
+          </div>
+          <div>
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              required
+              placeholder="123-456-7890"
+            />
+          </div>
+        </div>
+        <div class="submit-area">
+          <button>Submit</button>
+        </div>
+      </section>
+      <hr style="margin: 1rem 0.3rem; border: 1px solid #27272a" />
+      <section class="read-note">
+        <div class="note">
+          <div class="note-header">
+            <p>Muh Fadhlan</p>
+            <button id="see-more-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="note-details">
+            <div id="details-email">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+              <span>fadhlan1337@gmail.com</span>
+            </div>
+            <div id="details-phone">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                />
+              </svg>
+              <span>082247109826</span>
+            </div>
+          </div>
+          <p id="note-content" class="note-content">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum
+            ipsam suscipit eaque dolorum animi, aut distinctio soluta
+            voluptatibus laborum sapiente!
+          </p>
+          <div id="note-footer" class="note-footer">
+            <hr />
+            <span> 2 min ago </span>
+          </div>
+        </div>
+      </section>
+    </main>
+    <nav class="copyright">
+      <span>Copyright © 2024 Muhammad Fadhlan</span>
+    </nav>
+    <script src="public/index.js"></script>
   </body>
-  <script src="public/index.js"></script>
 </html>
