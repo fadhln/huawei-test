@@ -1,4 +1,7 @@
 :root {
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
   --background-color: rgba(9, 9, 11, 1);
   --content-color: #fafafa;
   --primary-color: #fb923c;
@@ -13,6 +16,15 @@ html {
   background-color: var(--background-color);
 }
 
+/* Remove chrome autofill color from inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  transition: background-color 5000s;
+  -webkit-text-fill-color: #fff !important;
+}
+
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -21,19 +33,31 @@ html {
 
 @media (min-width: 640px) {
   .container {
-    max-width: 640px;
+    max-width: var(--breakpoint-sm);
+  }
+
+  .details-area {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .read-note {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 768px) {
   .container {
-    max-width: 768px;
+    max-width: var(--breakpoint-md);
   }
 }
 
 @media (min-width: 1024px) {
   .container {
-    max-width: 1024px;
+    max-width: var(--breakpoint-lg);
+  }
+
+  .read-note {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 header {
@@ -87,6 +111,10 @@ main {
     outline-offset: 2px;
   }
 
+  & .char-count {
+    text-align: end;
+  }
+
   & input {
     padding: 0.5rem;
     border-radius: 0.3rem;
@@ -101,18 +129,25 @@ main {
 
   & .details-area {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
 
     & label {
-        font-size: small;
+      font-size: small;
     }
   }
 
   & .submit-area {
     margin-top: 1rem;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: center;
+
+    & p {
+      font-size: small;
+    }
   }
 
   & button {
@@ -135,6 +170,7 @@ main {
 }
 
 .read-note {
+  display: grid;
   margin-top: 0.5rem;
 }
 
