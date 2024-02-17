@@ -170,7 +170,7 @@ main {
 }
 
 .read-note {
-  display: grid;
+  display: block;
   margin-top: 0.5rem;
 }
 
