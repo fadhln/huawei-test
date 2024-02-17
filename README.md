@@ -2,11 +2,28 @@
 
 This repository contains the submission for the Technical Test as a Developer in PT. Huawei Tech Investment, under Digital Transformation & Analytics. The test aims to demonstrate my proficiency in Frontend development, Backend development, and Automation testing.
 
+The submitee is [Muhammad Fadhlan](https://www.linkedin.com/in/fadhln/). My resume can also be found [in this repository](resume.pdf).
+
 This repository consist of three part: Frontend (`fe/`), Backend (`be/`), and Automation testing (`test/`) that can be accessed in each folder. These parts works together to form a working application called "Noteboard".
 
 The main feature of this application is that "_it can save notes from users, then can be displayed to all users_".
 
 Each part has their own structure, and which will be further explained in the following sections.
+
+## Table of Content
+
+<!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
+- [Frontend](#frontend)
+    * [Usage](#usage)
+- [Backend](#backend)
+    * [Project Structure](#project-structure)
+    * [Installation](#installation)
+    * [Usage](#usage-1)
+- [Automation testing](#automation-testing)
+    * [Project Structure](#project-structure-1)
+    * [Installation](#installation-1)
+    * [Usage](#usage-2)
+<!-- TOC end -->
 
 ## Frontend
 
