@@ -1,14 +1,21 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "baseUrl": ".",
-    "sourceMap": true,
-    "target": "esnext",
+    "target": "es5",
     "module": "commonjs",
-    "esModuleInterop": true,
-    "noImplicitAny": true,
     "strict": true,
-    "skipLibCheck": true
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": "./__tests__",
+    "sourceMap": true,
+    "types": [
+      "jest",
+      "puppeteer",
+      "jest-environment-puppeteer",
+    ],
+    "outDir": "dist",
   },
-  "exclude": ["node_modules"]
+  "include": [
+    "./__tests__",
+  ]
 }
