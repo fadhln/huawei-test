@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { CreateNotesModel, NotesModel, ReadNotesModel } from "./notes.model";
+import { NotesModel, ReadNotesModel } from "./notes.model";
 import { NotesRepo } from "./notes.repo";
-import { compareDesc, formatDistanceToNow, parseISO } from "date-fns";
+import { compareAsc, formatDistanceToNow, parseISO } from "date-fns";
 import { errorResponse, successResponse } from "src/utils/response";
 import { isEmailValid, isPhoneValid } from "src/utils";
 import { StatusCodes } from "http-status-codes";
@@ -22,7 +22,7 @@ export class NotesService {
     }
 
     gotData.sort((a, b) =>
-      compareDesc(parseISO(a.createdAt), parseISO(b.createdAt))
+      compareAsc(parseISO(a.createdAt), parseISO(b.createdAt))
     );
 
     const sendData: ReadNotesModel[] = gotData.map((d) => ({

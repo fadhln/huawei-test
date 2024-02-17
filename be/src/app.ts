@@ -1,13 +1,14 @@
 import express from "express";
-import { NotesModel } from "./notes/notes.model";
-import {default as notesHandler} from "./notes/notes.handler";
+import { default as notesHandler } from "./notes/notes.handler";
+import cors from "cors";
 
 const app = express();
-app.use(express.json())
+app.use(express.json());
+app.use(cors());
 
 app.get("/ping", (_req, res) => {
   res.send("pong");
 });
-app.use("/notes", notesHandler)
+app.use("/notes", notesHandler);
 
 export default app;

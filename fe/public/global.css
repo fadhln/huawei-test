@@ -18,9 +18,9 @@ html {
 
 /* Remove chrome autofill color from inputs */
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  {
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
   transition: background-color 5000s;
   -webkit-text-fill-color: #fff !important;
 }
@@ -132,7 +132,7 @@ main {
     gap: 1rem;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
+    transition: max-height 0.2s ease-in-out;
 
     & label {
       font-size: small;
@@ -174,12 +174,22 @@ main {
   margin-top: 0.5rem;
 }
 
+.empty-message {
+  text-align: center;
+  padding: 2rem 0rem;
+  color: #52525b;
+  font-style: italic;
+}
+
 .note {
+  display: flex;
+  flex-direction: column;
   margin: 0.3rem;
   padding: 0.7rem;
   border-radius: 0.5rem;
   border-width: 1px;
   border-color: #3f3f46;
+  height: fit-content;
   filter: contrast(100%) brightness(100%);
   background: radial-gradient(
       circle at 100% 10%,
@@ -208,15 +218,24 @@ main {
   }
 }
 
+.see-more-btn {
+  transition: transform 0.2s ease-in-out;
+}
+
 .note-details {
   background-color: #3f3f46;
   margin: 8px 0;
-  padding: 0.5rem;
   font-size: 0.75rem;
   border-radius: 0.25rem;
   border-width: 1px;
   border-color: #52525b;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  visibility: collapse;
+
   & > div {
+    padding: 0.5rem;
     display: flex;
     align-items: center;
     & > svg {
@@ -231,9 +250,15 @@ main {
       white-space: nowrap;
     }
   }
+
+  & > div:last-child {
+    padding-top: 0;
+  }
 }
 
 .note-content {
+  flex-grow: 1;
+  height: 100%;
   margin-top: 0.25rem;
   font-weight: 300;
 }
