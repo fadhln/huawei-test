@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", main);
 
 function changeInfoMsg(msg) {
-  console.log(msg);
   const submitAreaInfo = document.getElementById("submit-area-info");
   submitAreaInfo.innerText = msg;
 }
