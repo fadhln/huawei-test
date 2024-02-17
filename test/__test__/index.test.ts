@@ -196,7 +196,7 @@ describe("Create note", () => {
     expect(afterLen).toBe(beforeLen);
   });
 
-  it("Should not be able to submit if `email` is not valid", async () => {
+  it("Should not be able to submit if `phone` is not valid", async () => {
     const nameInput = await indexPage.getNameInput();
     await nameInput?.type(validName);
 
